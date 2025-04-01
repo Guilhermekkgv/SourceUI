@@ -8,7 +8,7 @@ function Linux:Create(config)
     local Frame = Instance.new("Frame")
     Frame.Size = config.Size or UDim2.fromOffset(500, 350)
     Frame.Position = UDim2.new(0.5, -250, 0.5, -175)
-    Frame.BackgroundColor3 = Color3.fromRGB(230, 230, 235)
+    Frame.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
     Frame.BorderSizePixel = 0
     Frame.Active = true
     Frame.Draggable = true
@@ -20,7 +20,7 @@ function Linux:Create(config)
     
     local TopBar = Instance.new("Frame")
     TopBar.Size = UDim2.new(1, 0, 0, 35)
-    TopBar.BackgroundColor3 = Color3.fromRGB(210, 210, 215)
+    TopBar.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
     TopBar.BorderSizePixel = 0
     TopBar.Parent = Frame
     
@@ -65,7 +65,7 @@ function Linux:Create(config)
         local TabButton = Instance.new("TextButton")
         TabButton.Size = UDim2.new(0, 110, 0, 25)
         TabButton.Position = UDim2.new(0, #Tabs * 120, 0, 5)
-        TabButton.BackgroundColor3 = Color3.fromRGB(200, 200, 205)
+        TabButton.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
         TabButton.BorderSizePixel = 0
         TabButton.Text = name
         TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -91,7 +91,7 @@ function Linux:Create(config)
             CurrentTab = TabContent
             for _, button in pairs(TabContainer:GetChildren()) do
                 if button:IsA("TextButton") then
-                    button.BackgroundColor3 = Color3.fromRGB(200, 200, 205)
+                    button.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
                 end
             end
             TabButton.BackgroundColor3 = Color3.fromRGB(100, 150, 255)
@@ -114,7 +114,7 @@ function Linux:Create(config)
             local ToggleFrame = Instance.new("Frame")
             ToggleFrame.Size = UDim2.new(1, -10, 0, 40)
             ToggleFrame.Position = UDim2.new(0, 5, 0, #TabContent:GetChildren() * 45)
-            ToggleFrame.BackgroundColor3 = Color3.fromRGB(220, 220, 225)
+            ToggleFrame.BackgroundColor3 = Color3.fromRGB(110, 110, 110)
             ToggleFrame.BorderSizePixel = 0
             ToggleFrame.Parent = TabContent
             
@@ -136,7 +136,7 @@ function Linux:Create(config)
             local ToggleSwitch = Instance.new("Frame")
             ToggleSwitch.Size = UDim2.new(0, 50, 0, 25)
             ToggleSwitch.Position = UDim2.new(1, -65, 0.5, -12.5)
-            ToggleSwitch.BackgroundColor3 = Color3.fromRGB(200, 200, 205)
+            ToggleSwitch.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
             ToggleSwitch.BorderSizePixel = 0
             ToggleSwitch.Parent = ToggleFrame
             
@@ -147,7 +147,7 @@ function Linux:Create(config)
             local ToggleKnob = Instance.new("Frame")
             ToggleKnob.Size = UDim2.new(0, 22, 0, 22)
             ToggleKnob.Position = default and UDim2.new(1, -24, 0.5, -11) or UDim2.new(0, 2, 0.5, -11)
-            ToggleKnob.BackgroundColor3 = default and Color3.fromRGB(100, 150, 255) or Color3.fromRGB(170, 170, 175)
+            ToggleKnob.BackgroundColor3 = default and Color3.fromRGB(100, 150, 255) or Color3.fromRGB(70, 70, 70)
             ToggleKnob.BorderSizePixel = 0
             ToggleKnob.Parent = ToggleSwitch
             
@@ -164,9 +164,9 @@ function Linux:Create(config)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                     state = not state
                     local newPos = state and UDim2.new(1, -24, 0.5, -11) or UDim2.new(0, 2, 0.5, -11)
-                    local newColor = state and Color3.fromRGB(100, 150, 255) or Color3.fromRGB(170, 170, 175)
+                    local newColor = state and Color3.fromRGB(100, 150, 255) or Color3.fromRGB(70, 70, 70)
                     TweenService:Create(ToggleKnob, toggleTween, {Position = newPos, BackgroundColor3 = newColor}):Play()
-                    TweenService:Create(ToggleSwitch, toggleTween, {BackgroundColor3 = state and Color3.fromRGB(180, 180, 185) or Color3.fromRGB(200, 200, 205)}):Play()
+                    TweenService:Create(ToggleSwitch, toggleTween, {BackgroundColor3 = state and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(90, 90, 90)}):Play()
                     callback(state)
                 end
             end)
