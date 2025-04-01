@@ -136,7 +136,7 @@ function Linux:Create(config)
             local ToggleSwitch = Instance.new("Frame")
             ToggleSwitch.Size = UDim2.new(0, 50, 0, 25)
             ToggleSwitch.Position = UDim2.new(1, -65, 0.5, -12.5)
-            ToggleSwitch.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            ToggleSwitch.BackgroundColor3 = default and Color3.fromRGB(100, 150, 255) or Color3.fromRGB(50, 50, 50)
             ToggleSwitch.BorderSizePixel = 0
             ToggleSwitch.Parent = ToggleFrame
             
@@ -147,7 +147,7 @@ function Linux:Create(config)
             local ToggleKnob = Instance.new("Frame")
             ToggleKnob.Size = UDim2.new(0, 22, 0, 22)
             ToggleKnob.Position = default and UDim2.new(1, -24, 0.5, -11) or UDim2.new(0, 2, 0.5, -11)
-            ToggleKnob.BackgroundColor3 = default and Color3.fromRGB(100, 150, 255) or Color3.fromRGB(30, 30, 30)
+            ToggleKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             ToggleKnob.BorderSizePixel = 0
             ToggleKnob.Parent = ToggleSwitch
             
@@ -164,9 +164,9 @@ function Linux:Create(config)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                     state = not state
                     local newPos = state and UDim2.new(1, -24, 0.5, -11) or UDim2.new(0, 2, 0.5, -11)
-                    local newColor = state and Color3.fromRGB(100, 150, 255) or Color3.fromRGB(30, 30, 30)
-                    TweenService:Create(ToggleKnob, toggleTween, {Position = newPos, BackgroundColor3 = newColor}):Play()
-                    TweenService:Create(ToggleSwitch, toggleTween, {BackgroundColor3 = state and Color3.fromRGB(40, 40, 40) or Color3.fromRGB(50, 50, 50)}):Play()
+                    local newColor = state and Color3.fromRGB(100, 150, 255) or Color3.fromRGB(50, 50, 50)
+                    TweenService:Create(ToggleKnob, toggleTween, {Position = newPos}):Play()
+                    TweenService:Create(ToggleSwitch, toggleTween, {BackgroundColor3 = newColor}):Play()
                     callback(state)
                 end
             end)
