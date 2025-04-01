@@ -78,7 +78,7 @@ function Linux:Create(config)
         TabCorner.Parent = TabButton
         
         local TabContent = Instance.new("Frame")
-        TabContent.Size = UDim2.new(1, 0, 1, 0)
+        TabContent.Size = UDim2.new(1, 0, 0, 0)
         TabContent.BackgroundTransparency = 1
         TabContent.Visible = false
         TabContent.Parent = Content
@@ -169,7 +169,8 @@ function Linux:Create(config)
                 end
             end)
             
-            Content.CanvasSize = UDim2.new(0, 0, 0, (#TabContent:GetChildren() + 1) * 60)
+            TabContent.Size = UDim2.new(1, 0, 0, (#TabContent:GetChildren() + 1) * 60)
+            Content.CanvasSize = UDim2.new(0, 0, 0, TabContent.Size.Y.Offset)
         end
         
         return Tab
